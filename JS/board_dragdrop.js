@@ -108,7 +108,9 @@ function resetNoTaskDiv(id) {
         resetDivAndHideBorder4()
     }
     if (backgroundToReset && boardSectionToHide) {
-        addStyle(); // I added a delay to avoid overlap between the hideNoTaskDiv() and resetNoTaskDiv() functions;
+        setTimeout(() => {
+            addStyle(); // I added a delay to avoid overlap between the hideNoTaskDiv() and resetNoTaskDiv() functions;
+        }, 10)
     } else { }
 }
 
