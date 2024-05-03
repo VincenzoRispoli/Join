@@ -20,9 +20,15 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: space-between;
   position: fixed;
   bottom: 0;
   z-index: 1001;
+  box-sizing: border-box;
+}
+
+.join-logo-small {
+  padding: 16px;
 }
 
 .navbar-nouser {
@@ -64,6 +70,8 @@
 }
 
 .navbar-links {
+  display: flex;
+  justify-content: center;
   color: white;
   text-decoration: none;
   cursor: pointer;
@@ -71,10 +79,6 @@
 
 .blue-join-logo {
   display: none;
-}
-
-.join-logo-small {
-  padding: 100px 0;
 }
 
 .nav-link-div {
@@ -125,8 +129,11 @@
 .legal-section {
   display: flex;
   flex-direction: column;
-  padding-top: 260px;
+  align-items: center;
   gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
 }
 
 .index-contents {
@@ -306,8 +313,10 @@ input {
 }
 
 #addtask-content textarea {
-  -webkit-font-smoothing: antialiased; /* Für Chrome/Safari */
-  -moz-osx-font-smoothing: grayscale; /* Für Firefox */
+  -webkit-font-smoothing: antialiased;
+  /* Für Chrome/Safari */
+  -moz-osx-font-smoothing: grayscale;
+  /* Für Firefox */
   height: 220px;
   resize: both;
   overflow: hidden;
@@ -826,7 +835,7 @@ input#subtask-edit-input {
   background-color: #f0f0f0;
 }
 
-.board-sections > div {
+.board-sections>div {
   flex: 1;
   max-width: 252px;
   box-sizing: border-box;
@@ -946,7 +955,7 @@ input#subtask-edit-input {
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-  overflow-x:hidden
+  overflow-x: hidden
 }
 
 .board-card-content {
