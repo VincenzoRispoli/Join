@@ -72,19 +72,19 @@ async function init() {
     await includeHTML(); // Loads dynamic HTML components
     buttonFocus(); // Sets the focus on the main button of the page
     // Delays the execution of the sorting functions to wait for the data to load
-    if (window.location.href === "https://gruppe-870.developerakademie.net/summary.html") {
+    if (window.location.href === "https://join.vincenzo-rispoli.de/summary.html") {
         mobileWelcomeAnimation();
         timeDynamicWelcome(); // Displays a welcoming message based on the time of day
-    setTimeout(() => {
-        sortTasksByStateToDo();
-        sortTasksByStateInProgress();
-        numberOfAllTasks(); // Updates the display of the total number of tasks
-        sortTasksByStateAwaitingFeedback();
-        sortTasksByStateDone();
-        sortTasksByPrioUrgent(); //Sorts tasks by urgency
-    }, 300);    
-    } 
-    
+        setTimeout(() => {
+            sortTasksByStateToDo();
+            sortTasksByStateInProgress();
+            numberOfAllTasks(); // Updates the display of the total number of tasks
+            sortTasksByStateAwaitingFeedback();
+            sortTasksByStateDone();
+            sortTasksByPrioUrgent(); //Sorts tasks by urgency
+        }, 300);
+    }
+
 }
 
 /**
@@ -126,9 +126,9 @@ function reinitializeEventListenersForEditModal() {
  */
 document.addEventListener('DOMContentLoaded', () => {
     // Initializations that should be performed on all pages
-        loadTasks();
-        createTask();
-        
+    loadTasks();
+    createTask();
+
     //Functions needed on both the "Add Task" page and the "Board" page
     if (window.location.pathname.endsWith('/addtask.html') || window.location.pathname.endsWith('/board.html')) {
         loadItems().then(() => {

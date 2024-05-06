@@ -84,6 +84,7 @@
 .nav-link-div {
   display: flex;
   align-items: center;
+  width: 100%;
   padding: 8px 53px 8px 53px;
 }
 

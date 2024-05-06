@@ -17,7 +17,7 @@ let currentUser = [];
  * @desc Used to reference the name input field of the registration form.
  * @type {HTMLInputElement}
  */
-let Name = [];
+let Name;
 
 /**
  * Loads the user list from memory and updates the global variable `users`.
@@ -78,7 +78,7 @@ async function register() {
 /**
  * Resets the registration form after registration.
  */
-function resetForm() {     
+function resetForm() {
   let Name = document.getElementById('name');
   Name.value = '';
   email.value = '';
@@ -90,7 +90,7 @@ function resetForm() {
 /**
  * Checks whether the passwords match during registration.
  */
-function match() {      
+function match() {
   var password = document.getElementById("password")
     , confirm_password = document.getElementById("confirm_password");
   function validatePassword() {
@@ -122,7 +122,7 @@ async function login() {
 /**
  * Empties the arrays related to the current user and redirects to the login page
  */
-function logOut() {  
+function logOut() {
   Name = [];
   currentUser = [];
   window.location.href = '/index.html';
@@ -131,7 +131,7 @@ function logOut() {
 /**
  * Sets the current user after login.
  */
-async function setCurrentUser() {   
+async function setCurrentUser() {
   const userData = await getItem('user');
   let message = document.getElementById('welcome-message');
   try {
@@ -144,19 +144,19 @@ async function setCurrentUser() {
   }
 }
 
-/**
- * Sets the name of the current user.
- */
-async function setCurrentUserName() { 
-  const userData = await getItem('user');
-  try {
-    const jsonUserData = JSON.parse(userData);
-    currentUser.push(jsonUserData);
-    capitalisedName();
-  } catch (error) {
-    console.error("An error has occurred.", error);
-  }
-}
+// /**
+//  * Sets the name of the current user.
+//  */
+// async function setCurrentUserName() {
+//   const userData = await getItem('user');
+//   try {
+//     const jsonUserData = JSON.parse(userData);
+//     currentUser.push(jsonUserData);
+//     capitalisedName();
+//   } catch (error) {
+//     console.error("An error has occurred.", error);
+//   }
+// }
 
 /**
  * Filters out the user's name.
@@ -169,18 +169,19 @@ function getNamefromArray() {
 /**
  * Capitalizes the first letter of the logged in user and displays it on the user button.
  */
-function capitalisedName() {    
+function capitalisedName() {
   let capitalisedName = document.getElementById('user-name-capitalized');
-  Name.push(currentUser[0]['name']);
-  parts = Name[0].split(" ");
-  neededStr = parts[0][0].toUpperCase() + parts[1][0].toUpperCase();
-  capitalisedName.innerHTML = neededStr
+  Name = currentUser[0]['name'].split(" ")
+  let words = Name.map((word) => {
+    return word.charAt(0);
+  });
+  capitalisedName.innerHTML = words.join("");
 }
 
 /**
  * Displays an error message if username or password is incorrect.
  */
-function loginError() {       
+function loginError() {
   let message = document.getElementById('login-error-message');
   message.classList.remove('d-none');
   message.classList.add('d-flex');
@@ -190,7 +191,7 @@ function loginError() {
 /**
  * Function behind the “Stay logged in” checkbox.
  */
-function rememberMe() {   
+function rememberMe() {
   var rememberMeCheckbox = document.getElementById('remember');
   var usernameInput = document.getElementById('email');
   var passwordInput = document.getElementById('password');

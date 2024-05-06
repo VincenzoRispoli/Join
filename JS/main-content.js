@@ -95,7 +95,7 @@ function redirectToLogin() {
  * Generates a time-of-day welcome message.
  */
 function timeDynamicWelcome() {
-  let welcome = document.getElementById('daytime')
+  let welcome = document.getElementById('daytime');
   let date = new Date();
   let hour = date.getHours();
   if (hour < 12) {
@@ -139,13 +139,13 @@ function buttonFocus() {
   let boardNav = document.getElementById("board-nav");
   let contactsNav = document.getElementById("contacts-nav");
   setTimeout(buttonFocus, 100);
-  if (window.location.href === "https://gruppe-870.developerakademie.net/summary.html" && summaryNav) {
+  if (window.location.href === "https://join.vincenzo-rispoli.de/summary.html" && summaryNav) {
     summaryNav.style.backgroundColor = "#091931";
-  } if (window.location.href === "https://gruppe-870.developerakademie.net/addtask.html" && addTaskNav) {
+  } if (window.location.href === "https://join.vincenzo-rispoli.de/addtask.html" && addTaskNav) {
     addTaskNav.style.backgroundColor = "#091931";
-  } if (window.location.href === "https://gruppe-870.developerakademie.net/board.html" && boardNav) {
+  } if (window.location.href === "https://join.vincenzo-rispoli.de/board.html" && boardNav) {
     boardNav.style.backgroundColor = "#091931";
-  } if (window.location.href === "https://gruppe-870.developerakademie.net/addcontacts.html" && contactsNav) {
+  } if (window.location.href === "https://join.vincenzo-rispoli.de/addcontacts.html" && contactsNav) {
     contactsNav.style.backgroundColor = "#091931";
   }
 }
