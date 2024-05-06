@@ -112,11 +112,21 @@ async function login() {
   let password = document.getElementById('password');
   let user = users.find(u => u.email == email.value && u.password == password.value);
   if (user) {
+    siteIndex = '/summary.html';
     await setItem('user', JSON.stringify(user));
-    window.location.href = '/summary.html';
+    window.location.href = siteIndex;
   } else {
     loginError();
   }
+}
+
+async function guestLogIn() {
+  let guest = {
+    name: 'Guest User'
+  }
+  currentUser.push(guest);
+  await setItem('user', JSON.stringify(guest));
+  window.location.href = '/summary.html';
 }
 
 /**
@@ -144,19 +154,19 @@ async function setCurrentUser() {
   }
 }
 
-// /**
-//  * Sets the name of the current user.
-//  */
-// async function setCurrentUserName() {
-//   const userData = await getItem('user');
-//   try {
-//     const jsonUserData = JSON.parse(userData);
-//     currentUser.push(jsonUserData);
-//     capitalisedName();
-//   } catch (error) {
-//     console.error("An error has occurred.", error);
-//   }
-// }
+/**
+ * Sets the name of the current user.
+ */
+async function setCurrentUserName() {
+  const userData = await getItem('user');
+  try {
+    const jsonUserData = JSON.parse(userData);
+    currentUser.push(jsonUserData);
+    capitalisedName();
+  } catch (error) {
+    console.error("An error has occurred.", error);
+  }
+}
 
 /**
  * Filters out the user's name.

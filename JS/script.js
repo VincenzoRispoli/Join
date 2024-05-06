@@ -61,6 +61,8 @@ let identifier = 0;
  */
 let tasks = [];
 
+let pageIndex;
+
 /**
  * Initializes the main functions of the application.
  * Loads dynamic HTML content, greets the user based on the time of day,
@@ -72,9 +74,9 @@ async function init() {
     await includeHTML(); // Loads dynamic HTML components
     buttonFocus(); // Sets the focus on the main button of the page
     // Delays the execution of the sorting functions to wait for the data to load
-    if (window.location.href === "https://join.vincenzo-rispoli.de/summary.html") {
+    if (window.location.href === 'https://join.vincenzo-rispoli.de/summary.html') {
         mobileWelcomeAnimation();
-        timeDynamicWelcome(); // Displays a welcoming message based on the time of day
+        timeDynamicWelcome(); // Displays a welcoming message based on the time of day;
         setTimeout(() => {
             sortTasksByStateToDo();
             sortTasksByStateInProgress();
@@ -84,7 +86,6 @@ async function init() {
             sortTasksByPrioUrgent(); //Sorts tasks by urgency
         }, 300);
     }
-
 }
 
 /**

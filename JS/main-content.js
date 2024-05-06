@@ -1,3 +1,4 @@
+
 /**
  * Generates the content for the legal notice.
  */
@@ -83,6 +84,15 @@ function signUpMessage() {
 }
 
 /**
+ * Performs guest login.
+ */
+async function guestLogin() {
+  
+
+  // window.location.href = 'guest.index.html';
+}
+
+/**
  * Redirects to the login page after registration.
  */
 function redirectToLogin() {
@@ -124,13 +134,6 @@ function revealPassword(inputField) {
 }
 
 /**
- * Performs guest login.
- */
-function guestLogin() {
-  window.location.href = '/guest.index.html'
-}
-
-/**
  * Marks the navigation buttons depending on the current page.
  */
 function buttonFocus() {
@@ -162,7 +165,7 @@ function getCurrentURL() {
  */
 function closeGeneratedContent() {
   const url = getCurrentURL()
-    window.location.href = url;
+  window.location.href = url;
 }
 
 /**
