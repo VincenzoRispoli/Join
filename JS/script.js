@@ -127,8 +127,10 @@ function reinitializeEventListenersForEditModal() {
  */
 document.addEventListener('DOMContentLoaded', () => {
     // Initializations that should be performed on all pages
-    loadTasks();
-    createTask();
+    if (!window.location.pathname.endsWith('legalnotice-nouser.html')) {
+        loadTasks();
+        createTask();
+    }
 
     //Functions needed on both the "Add Task" page and the "Board" page
     if (window.location.pathname.endsWith('/addtask.html') || window.location.pathname.endsWith('/board.html')) {
@@ -178,7 +180,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Conditional initialization based on the current page
     if (isBoardPage()) {
         initializeBoardPage();
-    } else {
-        console.info('Not on the board side, specific board initializations are skipped.');
     }
 });

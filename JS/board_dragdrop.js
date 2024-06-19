@@ -36,7 +36,6 @@ async function moveTo(state, event) {
     tasks[currentDraggedElement]['state'] = state;
     await setItem('tasks', JSON.stringify(tasks));
     await initializeBoardCard();
-
 }
 
 /**

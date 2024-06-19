@@ -162,7 +162,7 @@ a {
   cursor: pointer;
 }
 
-.choice-btn:hover{
+.choice-btn:hover {
   background-color: #29abe2;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
 }
@@ -207,11 +207,6 @@ a {
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
-.arrow {
-  transition: transform 0.2s;
-  position: absolute;
-}
-
 .arrow:hover {
   transform: scale(1.1);
   background-color: rgb(228, 227, 227);
@@ -223,21 +218,25 @@ a {
   max-width: 1300px;
 }
 
-.legal-site-arrow {
-  position: fixed;
-  top: 225px;
-  right: 40px;
-  z-index: 999;
-}
-
 .blue-text {
   color: #29abe2;
+}
+
+.headline-container{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
 }
 
 .legal-headline {
   font-size: 61px;
   font-weight: 800;
   margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
+.legal-content {
+  padding-bottom: 100px;
 }
 
 .red-urgent-icon {
